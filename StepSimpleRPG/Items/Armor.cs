@@ -2,11 +2,25 @@
 
 namespace StepSimpleRPG.Items
 {
-    class Armor : IItem
+    internal class Armor : IItem
     {
-        public void Apply()
+        private readonly int _armorupRate;
+
+        internal Armor (int armorupRate)
         {
-            throw new NotImplementedException();
+            _armorupRate = armorupRate > 0 ? armorupRate : throw new Exception("ArmorupRate value cannot be negative or zero");
+        }
+
+        public void Apply(IPlayer player)
+        {           
+            try
+            {
+                player.Specs.Armor += _armorupRate;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Can`t add armor. Exeption: {ex.Message}");
+            }
         }
     }
 }
