@@ -6,11 +6,25 @@ using System.Threading.Tasks;
 
 namespace StepSimpleRPG
 {
-    class Potion : IItem
+    internal class Potion : IItem
     {
-        public void Apply()
+        private readonly int _healingRate;
+
+        internal Potion (int healingRate)
         {
-            throw new NotImplementedException();
+            _healingRate = healingRate > 0 ? healingRate : throw new Exception("HealingRate count value cannot be negative or zero");
+        }
+
+        public void Apply(IPlayer player)
+        {
+            try
+            {
+                player.Specs.Health += _healingRate;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Can`t add healingRate. Exeption: {ex.Message}");
+            }
         }
     }
 }
