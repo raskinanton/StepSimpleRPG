@@ -1,4 +1,5 @@
 ﻿using StepSimpleRPG.Items;
+using StepSimpleRPG.Misc;
 using System.Collections.Generic;
 
 namespace StepSimpleRPG.Players
@@ -10,6 +11,7 @@ namespace StepSimpleRPG.Players
         {
 
         }
-        public List<IItem> items { get; set; }
+        public List<IItem> _items { get; set; }
+        public Specifications Specs { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     }
 }
