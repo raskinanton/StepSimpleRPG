@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace StepSimpleRPG
 {
-    class IPlayer
+    public interface IPlayer
     {
-        public interface IPlayer
-        {
-            string ToString();
-        }
+        string ToString();
     }
 }
