@@ -12,7 +12,7 @@ namespace StepSimpleRPG
 
         internal Armor (int armorupRate)
         {
-            _armorupRate = armorupRate > 0 ? armorupRate : throw new Exception("ArmorupRate count value cannot be negative or zero");
+            _armorupRate = armorupRate > 0 ? armorupRate : throw new Exception("ArmorupRate value cannot be negative or zero");
         }
 
         public void Apply(IPlayer player)

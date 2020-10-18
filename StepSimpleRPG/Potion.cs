@@ -12,7 +12,7 @@ namespace StepSimpleRPG
 
         internal Potion (int healingRate)
         {
-            _healingRate = healingRate > 0 ? healingRate : throw new Exception("HealingRate count value cannot be negative or zero");
+            _healingRate = healingRate > 0 ? healingRate : throw new Exception("HealingRate value cannot be negative or zero");
         }
 
         public void Apply(IPlayer player)
