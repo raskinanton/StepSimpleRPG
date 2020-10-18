@@ -21,7 +21,7 @@ namespace StepSimpleRPG.Monsters
 
         public override string ToString()
         {
-            return $"{specs.Name}, health: {specs.Health}, coin: {specs.Coin}, armor: {specs.Armor}, Exp:{ecs.Exp}";
+            return $"{specs.Name}, health: {specs.Health}, coin: {specs.Coin}, armor: {specs.Armor}, Exp:{specs.Exp}";
         }
     }
 }
