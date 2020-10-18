@@ -1,5 +1,4 @@
-﻿using StepSimpleRPG.Players;
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Messaging;
 using StepSimpleRPG.Players;
