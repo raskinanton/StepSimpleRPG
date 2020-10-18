@@ -50,6 +50,7 @@
     <Compile Include="IItem.cs" />
     <Compile Include="Potion.cs" />
     <Compile Include="IMonster.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="MediumMonster.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Program.cs" />
