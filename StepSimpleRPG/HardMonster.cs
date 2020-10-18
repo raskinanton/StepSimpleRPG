@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StepSimpleRPG
 {
-    class MediumMonster: Monster
+    class HardMonster: Monster
     {
         List<IItem> _items;
 
