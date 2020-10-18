@@ -1,11 +1,10 @@
-﻿using System;
+﻿using StepSimpleRPG.Items;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StepSimpleRPG
+namespace StepSimpleRPG.Monsters
 {
     class MediumMonster: Monster
     {
