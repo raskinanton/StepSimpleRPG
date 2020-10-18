@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
+using StepSimpleRPG.Players;
 
 namespace StepSimpleRPG.Items
 {
@@ -6,8 +9,11 @@ namespace StepSimpleRPG.Items
     {
         private readonly int _coins;
 
-        internal Treasure (int coins)
+        public string Name { get; private set; }
+
+        internal Treasure (int coins, string name = "No name")
         {
+            Name = name == string.Empty ? "No name" : name;
             _coins = coins > 0 ? coins : throw new Exception("Coins count value cannot be negative or zero");
         }
 
@@ -21,6 +27,11 @@ namespace StepSimpleRPG.Items
             {
                 Console.WriteLine($"Can`t add coins. Exeption: {ex.Message}");
             }
+        }
+
+        public override string ToString()
+        {
+            return $"InemName: {Name}, coins: {_coins}";
         }
     }
 }

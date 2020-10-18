@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StepSimpleRPG.Players;
+using System;
 
 namespace StepSimpleRPG.Items
 {
@@ -6,8 +7,11 @@ namespace StepSimpleRPG.Items
     {
         private readonly int _armorupRate;
 
-        internal Armor (int armorupRate)
+        public string Name { get; private set; }
+
+        internal Armor (int armorupRate, string name = "No name")
         {
+            Name = name == string.Empty ? "No name" : name;
             _armorupRate = armorupRate > 0 ? armorupRate : throw new Exception("ArmorupRate value cannot be negative or zero");
         }
 
@@ -21,6 +25,11 @@ namespace StepSimpleRPG.Items
             {
                 Console.WriteLine($"Can`t add armor. Exeption: {ex.Message}");
             }
+        }
+
+        public override string ToString()
+        {
+            return $"InemName: {Name}, armorupRate: {_armorupRate}";
         }
     }
 }
