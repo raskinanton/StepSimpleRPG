@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StepSimpleRPG.Players;
+using System;
 
 namespace StepSimpleRPG.Items
 {
@@ -21,6 +22,6 @@ namespace StepSimpleRPG.Items
             {
                 Console.WriteLine($"Can`t add coins. Exeption: {ex.Message}");
             }
-        }
+        }   
     }
 }
