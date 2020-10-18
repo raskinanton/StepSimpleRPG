@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace StepSimpleRPG
 {
-    class Program
+    class IPlayer
     {
-        static void Main(string[] args)
+        public interface IPlayer
         {
-            Console.WriteLine("Hello players!!");
+            string ToString();
         }
     }
 }
