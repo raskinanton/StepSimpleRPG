@@ -8,12 +8,12 @@ namespace StepSimpleRPG.Monsters
     {
 
         protected Specifications specs;
-        private int PassCost;
+        private int _PassCost;
 
         public Monster()
         {
             specs.Name = "Монстр 1 уровня";
-            PassCost = 2;
+            _PassCost = 2;
             specs.Health = 10;
             specs.Armor = 3;
             specs.Coin = 1;
@@ -38,9 +38,9 @@ namespace StepSimpleRPG.Monsters
 
         public virtual void Pass(IPlayer player)
         {
-            player.Specs.Coin += PassCost;
-            if(specs.Coin >= PassCost)
-            specs.Coin -= PassCost;
+            player.Specs.Coin += _PassCost;
+            if(specs.Coin >= _PassCost)
+            specs.Coin -= _PassCost;
             else
             {
                 Atack(player);
