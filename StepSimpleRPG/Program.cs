@@ -10,7 +10,7 @@ namespace StepSimpleRPG
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Что-то другое");
+            Console.WriteLine("Hello players!!!");
         }
     }
 }
