@@ -12,6 +12,8 @@ namespace StepSimpleRPG.Items
             _armorupRate = armorupRate > 0 ? armorupRate : throw new Exception("ArmorupRate value cannot be negative or zero");
         }
 
+        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public void Apply(IPlayer player)
         {           
             try
@@ -22,6 +24,11 @@ namespace StepSimpleRPG.Items
             {
                 Console.WriteLine($"Can`t add armor. Exeption: {ex.Message}");
             }
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }
