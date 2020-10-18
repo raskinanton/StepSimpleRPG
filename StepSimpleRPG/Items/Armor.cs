@@ -1,5 +1,5 @@
-﻿using System;
-using StepSimpleRPG.Players;
+﻿using StepSimpleRPG.Players;
+using System;
 
 namespace StepSimpleRPG.Items
 {

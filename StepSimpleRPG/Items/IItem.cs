@@ -2,7 +2,7 @@
 
 namespace StepSimpleRPG.Items
 {
-    interface IItem
+    public interface IItem
     {
         string Name { get; }
 
