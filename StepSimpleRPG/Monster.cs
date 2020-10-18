@@ -26,17 +26,16 @@ namespace StepSimpleRPG
         {
             Random rnd = new Random();
             int result = rnd.Next(1, 10);
+            player.Specs.Health -= specs.Armor;
             if (result <= 3)
             {
-                Console.WriteLine("Монстр проиграл ");
+         
                 specs.Health = 0;
                 player.Specs.Coin += specs.Coin;
                 return false;
             }
-            
-            player.Specs.Health -= specs.Armor;
             return true;
-            
+          
         }
 
         public virtual void Pass(IPlayer player)
