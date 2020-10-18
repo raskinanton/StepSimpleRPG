@@ -7,12 +7,13 @@ namespace StepSimpleRPG.Items
     {
         private readonly int _armorupRate;
 
-        internal Armor (int armorupRate)
+        public string Name { get; private set; }
+
+        internal Armor (int armorupRate, string name = "No name")
         {
+            Name = name == string.Empty ? "No name" : name;
             _armorupRate = armorupRate > 0 ? armorupRate : throw new Exception("ArmorupRate value cannot be negative or zero");
         }
-
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void Apply(IPlayer player)
         {           
@@ -28,7 +29,7 @@ namespace StepSimpleRPG.Items
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"InemName: {Name}, armorupRate: {_armorupRate}";
         }
     }
 }
