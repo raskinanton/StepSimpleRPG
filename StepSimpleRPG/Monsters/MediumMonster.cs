@@ -6,5 +6,6 @@ namespace StepSimpleRPG.Monsters
     class MediumMonster: Monster
     {
         List<IItem> _items;
+
     }
 }
