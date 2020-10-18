@@ -8,7 +8,7 @@ namespace StepSimpleRPG
 {
     interface IItem
     {
-        void Apply();
+        void Apply(IPlayer player);
         string ToString();
     }
 }
