@@ -4,7 +4,7 @@ using System;
 
 namespace StepSimpleRPG
 {
-    public class Game
+        public class Game
     { 
         private IPlayer _Player;
         private IMonster _Monster;
@@ -20,10 +20,25 @@ namespace StepSimpleRPG
             do
             {
                 Console.WriteLine(_Player.ToString());
-                Console.WriteLine("w - Attack\na - Retreat\ns - Heal\n0 - Exit\n");
+                Console.WriteLine("w - Attack\na - Retreat\ns - Heal\nn-Next\ne - Exit\n");
                 Console.WriteLine("Enter action: ");
+                action = Console.ReadLine();
+                switch (action)
+                {
+                    case "w":
+                        break;
+                    case "a":
+                        break;
+                    case "s":
+                        break;
+                    case "n":
+                        break;
+                    case "e":
+                        break;
+                }
             }
-            while((action = Console.ReadLine()) != "0");
+            while(action != "0");
+            
         }
     }
 }

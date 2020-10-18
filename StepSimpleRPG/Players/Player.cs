@@ -1,7 +1,7 @@
 ﻿using StepSimpleRPG.Items;
 using StepSimpleRPG.Misc;
 using System.Collections.Generic;
-
+using System;
 namespace StepSimpleRPG.Players
 {
     public class Player : IPlayer
@@ -20,14 +20,19 @@ namespace StepSimpleRPG.Players
         }
         public Player(int armor, int coin, int exp, int health, string name)
         {
-            _specs = new Specifications()
+            if (armor < 0 || coin < 0 || exp < 0 || health < 0)
+                throw new Exception("Недопустимое значение!");
+            else
             {
-                Armor = armor,
-                Coin = coin,
-                Exp = exp,
-                Health = health,
-                Name = name
-            };
+                _specs = new Specifications()
+                {
+                    Armor = armor,
+                    Coin = coin,
+                    Exp = exp,
+                    Health = health,
+                    Name = name
+                };
+            }
         }
         public Player(Specifications specs)
         {
