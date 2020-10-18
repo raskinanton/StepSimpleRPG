@@ -1,4 +1,8 @@
-﻿namespace StepSimpleRPG.Monsters
+﻿using System;
+using StepSimpleRPG.Players;
+using StepSimpleRPG.Misc;
+
+namespace StepSimpleRPG.Monsters
 {
     class Monster: IMonster
     {
