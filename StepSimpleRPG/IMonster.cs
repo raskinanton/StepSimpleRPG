@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace StepSimpleRPG
 {
-    class Program
+    public interface IMonster
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello players!!");
-        }
+        bool Atack(IPlayer player);
+        void Pass (IPlayer player);
     }
 }

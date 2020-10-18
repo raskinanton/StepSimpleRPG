@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace StepSimpleRPG
 {
-    class Program
+    interface IItem
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello players!!");
-        }
+        void Apply();
+        string ToString();
     }
 }
