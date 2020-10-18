@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace StepSimpleRPG.Monsters
 {
-    class HardMonster: Monster
+    class HardMonster: Monster, IMonster
     {
         List<IItem> _items;
 
@@ -15,6 +15,7 @@ namespace StepSimpleRPG.Monsters
             specs.Armor = 10;
             specs.Exp = 20;
         }
+            
 
         public override string ToString()
         {
