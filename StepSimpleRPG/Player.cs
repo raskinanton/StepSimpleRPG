@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace StepSimpleRPG
 {
-    class Program
+    class Player : IPlayer
     {
-        static void Main(string[] args)
+
+        public Player()
         {
-            Console.WriteLine("Hello players!!!");
+
         }
+        public List<IItem> items { get; set; }
     }
 }
