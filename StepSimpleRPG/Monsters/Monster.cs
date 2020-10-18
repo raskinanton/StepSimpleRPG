@@ -39,7 +39,12 @@ namespace StepSimpleRPG.Monsters
         public virtual void Pass(IPlayer player)
         {
             player.Specs.Coin += PassCost;
-            
+            if(specs.Coin >= PassCost)
+            specs.Coin -= PassCost;
+            else
+            {
+                Atack(player);
+            }
         }
     }
 }
