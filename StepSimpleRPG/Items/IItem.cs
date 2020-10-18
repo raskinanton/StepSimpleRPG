@@ -2,7 +2,7 @@
 
 namespace StepSimpleRPG.Items
 {
-    interface IItem
+    public interface IItem
     {
         void Apply(IPlayer player);
         string ToString();
