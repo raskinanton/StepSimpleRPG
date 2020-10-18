@@ -9,5 +9,6 @@ namespace StepSimpleRPG
     public interface IPlayer
     {
         string ToString();
+        Specifications Specs { get; set; }
     }
 }
