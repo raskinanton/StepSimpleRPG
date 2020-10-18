@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace StepSimpleRPG
 {
-    public interface IPlayer
+    class Treasure : IItem
     {
-        string ToString();
-        Specifications Specs { get; set; }
+        public void Apply()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

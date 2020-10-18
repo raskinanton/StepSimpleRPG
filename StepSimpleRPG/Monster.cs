@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace StepSimpleRPG
 {
-    public interface IPlayer
+    class Monster 
     {
-        string ToString();
-        Specifications Specs { get; set; }
+        private int damage;
+        private int exp;
+        private int coins;
+        private int PassCost;
     }
 }
+

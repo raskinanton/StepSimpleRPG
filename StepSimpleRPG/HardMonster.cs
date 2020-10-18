@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace StepSimpleRPG
 {
-    public interface IPlayer
+    class HardMonster: Monster
     {
-        string ToString();
-        Specifications Specs { get; set; }
+        List<IItem> _items;
+
     }
 }
