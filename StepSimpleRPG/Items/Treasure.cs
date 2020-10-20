@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
-using System.Runtime.Remoting.Messaging;
 using StepSimpleRPG.Players;
 
 namespace StepSimpleRPG.Items
