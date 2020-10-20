@@ -7,7 +7,7 @@ namespace StepSimpleRPG.Monsters
     class Monster: IMonster
     {
 
-        protected Specifications specs;
+        protected Specifications specs = new Specifications();
         private int _PassCost;
 
         public Monster()
