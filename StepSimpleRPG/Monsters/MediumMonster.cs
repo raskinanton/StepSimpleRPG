@@ -12,16 +12,16 @@ namespace StepSimpleRPG.Monsters
 
         public  MediumMonster()
         {
-            specs.Name = "MediumMonster";
-            specs.Health = 20;
-            specs.Coin = 2;
-            specs.Armor = 5;
-            specs.Exp = 10;
+            _specs.Name = "MediumMonster";
+            _specs.Health = 20;
+            _specs.Coin = 2;
+            _specs.Armor = 5;
+            _specs.Exp = 10;
         }
 
         public override string ToString()
         {
-            return $"{specs.Name}, health: {specs.Health}, coin: {specs.Coin}, armor: {specs.Armor}, Exp:{specs.Exp}";
+            return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Armor}, Exp:{_specs.Exp}";
         }
     }
 }
