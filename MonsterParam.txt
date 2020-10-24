@@ -1,0 +1,9 @@
+            //_specs.Health = 5 - 10 -15
+            //_specs.Coin = 1 - 2 - 5;   
+            //_specs.Armor = 0 - 2 - 5;
+            //_specs.Exp = 3 - 6 - 10;
+            //_PassCost = 1 - 2 - 4;
+            //_items = new List<IItem>();
+            //_items.Add(new Treasure(2)); 1 - 2 - 2
+            //_items.Add(new Potion(3));   0 - 2 - 3
+            //_items.Add(new Armor(5));    0 - 2 - 5

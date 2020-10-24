@@ -33,8 +33,7 @@ namespace StepSimpleRPG.Monsters
         }
         public override void Pass(IPlayer player)
         {
-            base.Pass(player);
-          
+            base.Pass(player);         
 
         }
         public override string ToString()

@@ -4,26 +4,25 @@ using System.Collections.Generic;
 
 namespace StepSimpleRPG.Monsters
 {
-    class MediumMonster: Monster
+    class EasyMonster : Monster
     {
         List<IItem> _items;
-
-        public  MediumMonster()
+        public EasyMonster()
         {
-            _specs.Name = "MediumMonster";
-            _specs.Health = 10;
-            _specs.Coin = 2;
-            _specs.Armor = 2;
-            _specs.Exp = 6;
-            _PassCost = 2;
+            _specs.Name = "Easy Monster";
+            _specs.Health = 5;
+            _specs.Coin = 1;
+            _specs.Armor = 0;
+            _specs.Exp = 3;
+            _PassCost = 1;
             _items = new List<IItem>();
-            _items.Add(new Treasure(2));
-            _items.Add(new Potion(2));
+            _items.Add(new Treasure(1));
         }
 
         public override string ToString()
         {
             return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Armor}, Exp:{_specs.Exp}";
         }
+
     }
 }

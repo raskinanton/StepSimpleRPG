@@ -17,9 +17,7 @@ namespace StepSimpleRPG.Monsters
             _specs.Health = 10;
             _specs.Armor = 3;
             _specs.Coin = 2;
-            _specs.Exp = 5;
-
-           
+            _specs.Exp = 5;           
         }
         public virtual bool Atack(IPlayer player)
         {
