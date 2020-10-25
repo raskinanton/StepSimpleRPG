@@ -14,7 +14,17 @@ namespace StepSimpleRPG.Monsters
         protected List<IItem> _items;
 
 
-    
+        public Monster()
+        {
+            _specs = new Specifications();
+            _specs.Name = "Monster";
+            _specs.Health = 5;
+            _specs.Coin = 1;
+            _specs.Armor = 0;
+            _specs.Exp = 2;
+            _PassCost = 5;
+            
+        }
         public virtual bool Atack(IPlayer player)
         {
             Random rnd = new Random();
