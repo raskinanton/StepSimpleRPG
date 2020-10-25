@@ -15,7 +15,7 @@ namespace StepSimpleRPG.Monsters
 
             _specs.Health = 7 + rnd.Next(-3, 3);
             _specs.Coin = 4 + rnd.Next(-1, 3);
-            _specs.Armor = 4 + rnd.Next(1, 2);
+            _specs.Damage = 4 + rnd.Next(1, 2);
             _specs.Exp = 4 + rnd.Next(1, 2);
             _PassCost = 4 + rnd.Next(2, 5);
             _items = new List<IItem>();

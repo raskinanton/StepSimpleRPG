@@ -21,7 +21,7 @@ namespace StepSimpleRPG.Monsters
             _specs.Name = "EasyMonster";
             _specs.Health = 5 + rnd.Next(-3,3);
             _specs.Coin = 2 + rnd.Next(-1, 3);
-            _specs.Armor = 2 + rnd.Next(1, 2);
+            _specs.Damage = 2 + rnd.Next(1, 2);
             _specs.Exp = 1 + rnd.Next(1, 2);
             _PassCost = 2 + rnd.Next(2, 5);
             
@@ -57,7 +57,7 @@ namespace StepSimpleRPG.Monsters
 
         public override string ToString()
         {
-            return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Armor}, Exp:{_specs.Exp}";
+            return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Damage}, Exp:{_specs.Exp}";
         }
     }
 }
