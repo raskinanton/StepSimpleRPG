@@ -31,7 +31,7 @@ namespace StepSimpleRPG.Monsters
             bool BaseAttack = base.TryAtack(player); 
             if(!BaseAttack)
             {
-                player.Specs.Exp += 4;
+                player.Specs.Exp += _specs.Exp;
                 player.pushItems(_items); 
                 return false;
             }

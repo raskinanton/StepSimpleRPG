@@ -34,10 +34,10 @@ namespace StepSimpleRPG.Monsters
             }
             Random rnd = new Random();
             int result = rnd.Next(1, 10);
-            player.Specs.Health -= _specs.Exp;
+            player.Specs.Health -= _specs.Damage;
             if (result >= 3)
             {
-                player.Specs.Exp += 1;          
+                player.Specs.Exp += _specs.Exp;          
                 player.Specs.Coin += _specs.Coin;
                 return false;
             }
@@ -57,7 +57,8 @@ namespace StepSimpleRPG.Monsters
 
         public override string ToString()
         {
-            return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Damage}, Exp:{_specs.Exp}";
+            return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Damage}, Exp:{_specs.Exp} \n";
+
         }
     }
 }
