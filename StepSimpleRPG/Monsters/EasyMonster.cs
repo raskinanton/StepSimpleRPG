@@ -28,6 +28,10 @@ namespace StepSimpleRPG.Monsters
         }
         public virtual bool TryAtack(IPlayer player)
         {
+            if (player == null)
+            {
+                throw new Exception("Недопустимое значение !");
+            }
             Random rnd = new Random();
             int result = rnd.Next(1, 10);
             player.Specs.Health -= _specs.Exp;

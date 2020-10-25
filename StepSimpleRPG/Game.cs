@@ -51,6 +51,13 @@ namespace StepSimpleRPG
                         }
                         break;
                     case "s":
+                        if (_player.tryTreatment())
+                        {
+                            Console.WriteLine("heal success");
+                        } else
+                        {
+                            Console.WriteLine("heal failed");
+                        }
                         break;
                     case "0":
                         Console.WriteLine("The End!");
