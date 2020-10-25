@@ -22,6 +22,11 @@ namespace StepSimpleRPG.Monsters
 
         public override bool TryAtack(IPlayer player)
         {
+            if (player == null)
+            {
+                throw new Exception("player is null");
+            }
+
             if (!base.TryAtack(player))
             {
                 player.Specs.Exp += 2;
