@@ -18,9 +18,9 @@ namespace StepSimpleRPG.Monsters
             _items.Add(new Treasure(2));
             _items.Add(new Potion(2));
         }
-        public override bool Atack(IPlayer player)
+        public override bool TryAtack(IPlayer player)
         {
-            if (!base.Atack(player))
+            if (!base.TryAtack(player))
             {
                 player.Specs.Exp += 2;
                 //player.pushItems(_items); //у игрока реализовать данный метод(для добавления ему вещей в случае его победы);
