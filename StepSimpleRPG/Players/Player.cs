@@ -39,7 +39,7 @@ namespace StepSimpleRPG.Players
             {
                 _specs = new Specifications()
                 {
-                    Armor = armor,
+                    Damage = armor,
                     Coin = coin,
                     Exp = exp,
                     Health = health,
@@ -78,9 +78,8 @@ namespace StepSimpleRPG.Players
         public override string ToString()
         {
             var str = new StringBuilder();
-            str.Append("Имя: ");
-            str.Append(_specs.Name);
-            str.Append($"Броня - {_specs.Armor}, деньги - {_specs.Coin}, опыт - {_specs.Exp}, здороье - {_specs.Health}");
+            str.Append($"\nИмя: {_specs.Name}");
+            str.Append($"\nУрон - {_specs.Damage}, деньги - {_specs.Coin}, опыт - {_specs.Exp}, здороье - {_specs.Health}");
             str.Append("\nПредметы в рюкзаке:");
             foreach (var i in _items)
             {
