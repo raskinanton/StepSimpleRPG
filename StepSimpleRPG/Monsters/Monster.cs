@@ -9,11 +9,12 @@ namespace StepSimpleRPG.Monsters
    abstract class Monster: IMonster
     {
 
-        protected Specifications _specs = new Specifications();
+        protected Specifications _specs;
         protected int _PassCost;
         protected List<IItem> _items;
 
-       
+
+    
         public virtual bool Atack(IPlayer player)
         {
             Random rnd = new Random();

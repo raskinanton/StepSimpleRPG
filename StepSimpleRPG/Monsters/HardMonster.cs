@@ -10,6 +10,7 @@ namespace StepSimpleRPG.Monsters
 
         public HardMonster()
         {
+            _specs = new Misc.Specifications();
             _specs.Name = "HardMonster";
             _specs.Health = 15;
             _specs.Coin = 5;
