@@ -1,4 +1,6 @@
-﻿using StepSimpleRPG.Misc;
+﻿using StepSimpleRPG.Items;
+using StepSimpleRPG.Misc;
+using System.Collections.Generic;
 
 namespace StepSimpleRPG.Players
 {
@@ -6,7 +8,7 @@ namespace StepSimpleRPG.Players
     {
         string ToString();
 
-        void pushItems();
+        void pushItems(List<IItem> _items);
         Specifications Specs { get; set; }
     }
 }
