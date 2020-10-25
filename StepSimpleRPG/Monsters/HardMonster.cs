@@ -19,16 +19,16 @@ namespace StepSimpleRPG.Monsters
             _specs.Exp = 4 + rnd.Next(1, 2);
             _PassCost = 4 + rnd.Next(2, 5);
             _items = new List<IItem>();
-            _items.Add(new Treasure(2));
-            _items.Add(new Potion(3));
-            _items.Add(new Armor(5));
+            _items.Add(new Treasure(4 + rnd.Next(-1, 5)));
+            _items.Add(new Potion(4 + rnd.Next(-1, 5)));
+            _items.Add(new Armor(4 + rnd.Next(-1, 5)));
         }
         public override bool TryAtack(IPlayer player) {
             bool BaseAttack = base.TryAtack(player); 
             if(!BaseAttack)
             {
                 player.Specs.Exp += 4;
-                //player.pushItems(_items); //у игрока реализовать данный метод(для добавления ему вещей в случае его победы);
+                player.pushItems(_items); 
                 return false;
             }
             return true;
