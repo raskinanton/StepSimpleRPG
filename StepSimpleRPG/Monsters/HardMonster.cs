@@ -6,7 +6,7 @@ namespace StepSimpleRPG.Monsters
 {
     class HardMonster: Monster
     {
-        List<IItem> _items;
+       
 
         public HardMonster()
         {

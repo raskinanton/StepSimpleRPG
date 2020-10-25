@@ -1,29 +1,24 @@
 ﻿using System;
 using StepSimpleRPG.Players;
 using StepSimpleRPG.Misc;
+using StepSimpleRPG.Items;
+using System.Collections.Generic;
 
 namespace StepSimpleRPG.Monsters
 {
-    class Monster: IMonster
+   abstract class Monster: IMonster
     {
 
         protected Specifications _specs = new Specifications();
         protected int _PassCost;
- 
-        public Monster()
-        {
-            _specs.Name = "Монстр 1 уровня";
-            _PassCost = 1;
-            _specs.Health = 10;
-            _specs.Armor = 3;
-            _specs.Coin = 2;
-            _specs.Exp = 5;           
-        }
+        protected List<IItem> _items;
+
+       
         public virtual bool Atack(IPlayer player)
         {
             Random rnd = new Random();
             int result = rnd.Next(1, 10);
-            player.Specs.Health -= _specs.Armor;
+            player.Specs.Health -= _specs.Exp;
             if (result <= 3)
             {
                 _specs.Health = 0;
