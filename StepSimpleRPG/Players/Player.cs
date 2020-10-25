@@ -55,14 +55,6 @@ namespace StepSimpleRPG.Players
 
         }
 
-        public void showItems()
-        {
-            foreach(var i in _items)
-            {
-                Console.WriteLine($"{ i.ToString()}\n");
-            }
-        }
-
         public bool tryTreatment()
         {
             for (int i = 0; i < _items.Count; i++)
