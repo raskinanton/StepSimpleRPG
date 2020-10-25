@@ -25,7 +25,7 @@ namespace StepSimpleRPG.Monsters
             _PassCost = 5;
             
         }
-        public virtual bool Atack(IPlayer player)
+        public virtual bool TryAtack(IPlayer player)
         {
             Random rnd = new Random();
             int result = rnd.Next(1, 10);
@@ -39,7 +39,7 @@ namespace StepSimpleRPG.Monsters
           
         }
 
-        public virtual bool Pass(IPlayer player)
+        public virtual bool TryPass(IPlayer player)
         {
             if (player.Specs.Coin >= _PassCost)
             {
