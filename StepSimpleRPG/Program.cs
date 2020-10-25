@@ -17,7 +17,7 @@ namespace StepSimpleRPG
         static void Main(string[] args)
         {
             Player player = new Player("Tim");
-            Monster monster = new Monster();
+            IMonster monster = new HardMonster();
             Game game = new Game(player, monster);
             game.run();
 
