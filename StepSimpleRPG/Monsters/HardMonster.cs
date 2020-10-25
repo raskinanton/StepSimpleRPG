@@ -34,15 +34,7 @@ namespace StepSimpleRPG.Monsters
             return true;
         
         }
-        public override bool TryPass(IPlayer player)
-        {
-           bool result =  base.TryPass(player);         
-        if(result)
-            {
-                return true;
-            }
-            return false;
-        }
+      
         public override string ToString()
         {
             return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Armor}, Exp:{_specs.Exp}";
