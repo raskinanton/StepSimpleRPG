@@ -3,15 +3,17 @@ using System;
 
 namespace StepSimpleRPG.Items
 {
-    internal class Potion : IItem
+    public class Potion : IItem
     {
         private readonly int _healingRate;
 
         public string Name { get; private set; }
 
-        internal Potion (int healingRate, string name = "No name")
+        public Potion (int healingRate, string name = "No name")
         {
-            Name = name == string.Empty ? "No name" : name;
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentNullException(nameof(name));
+            Name = name;
             _healingRate = healingRate > 0 ? healingRate : throw new Exception("HealingRate value cannot be negative or zero");
         }
 
