@@ -21,7 +21,7 @@ namespace StepSimpleRPG.Items
         {           
             try
             {
-                player.Specs.Armor += _armorupRate;
+                player.Specs.Damage += _armorupRate;
             }
             catch (Exception ex)
             {
