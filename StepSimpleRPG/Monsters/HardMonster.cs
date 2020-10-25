@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace StepSimpleRPG.Monsters
 {
-    class HardMonster: Monster
+    class HardMonster: EasyMonster
     {
        
 
@@ -12,30 +12,36 @@ namespace StepSimpleRPG.Monsters
         {
             _specs = new Misc.Specifications();
             _specs.Name = "HardMonster";
-            _specs.Health = 15;
-            _specs.Coin = 5;
-            _specs.Armor = 5;
-            _specs.Exp = 10;
-            _PassCost = 4;
+
+            _specs.Health = 7 + rnd.Next(-3, 3);
+            _specs.Coin = 4 + rnd.Next(-1, 3);
+            _specs.Armor = 4 + rnd.Next(1, 2);
+            _specs.Exp = 4 + rnd.Next(1, 2);
+            _PassCost = 4 + rnd.Next(2, 5);
             _items = new List<IItem>();
             _items.Add(new Treasure(2));
             _items.Add(new Potion(3));
             _items.Add(new Armor(5));
         }
-        public override bool Atack(IPlayer player) {
-            bool BaseAttack = base.Atack(player); 
+        public override bool TryAtack(IPlayer player) {
+            bool BaseAttack = base.TryAtack(player); 
             if(!BaseAttack)
             {
+                player.Specs.Exp += 4;
                 //player.pushItems(_items); //у игрока реализовать данный метод(для добавления ему вещей в случае его победы);
                 return false;
             }
             return true;
         
         }
-        public override void Pass(IPlayer player)
+        public override bool TryPass(IPlayer player)
         {
-            base.Pass(player);         
-
+           bool result =  base.TryPass(player);         
+        if(result)
+            {
+                return true;
+            }
+            return false;
         }
         public override string ToString()
         {
