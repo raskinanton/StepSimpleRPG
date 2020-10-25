@@ -10,7 +10,7 @@ namespace StepSimpleRPG.Players
     public class Player : IPlayer
     {
         private Specifications _specs;
-        private List<IItem> _items { get; set; }
+        protected List<IItem> _items { get; set; }
 
         public Player(string name)
         {
@@ -79,7 +79,7 @@ namespace StepSimpleRPG.Players
 
         public void pushItems(List<IItem> _items)
         {
-            this._items.Concat(_items);
+            this._items.AddRange(_items);
         }
         public Specifications Specs { get => _specs; set { _specs = value; } }
 
