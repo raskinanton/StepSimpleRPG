@@ -15,7 +15,7 @@ namespace StepSimpleRPG.Players
         {
             if (string.IsNullOrEmpty(name))
             {
-                throw new Exception("Недопустимое значение!");
+                throw new ArgumentNullException(nameof(name));
             }
             else
             {
@@ -82,6 +82,11 @@ namespace StepSimpleRPG.Players
         }
         public Specifications Specs { get => _specs; set { _specs = value; } }
 
-
+        public override string ToString()
+        {
+            Console.WriteLine("Предметы в моём рюкзаке: ");
+            showItems();
+            return _specs.Name;
+        }
     }
 }
