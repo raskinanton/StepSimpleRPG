@@ -1,7 +1,7 @@
 ﻿using StepSimpleRPG.Items;
 using StepSimpleRPG.Players;
 using System.Collections.Generic;
-
+using System;
 namespace StepSimpleRPG.Monsters
 {
     class HardMonster: EasyMonster
@@ -24,6 +24,10 @@ namespace StepSimpleRPG.Monsters
             _items.Add(new Armor(4 + rnd.Next(-1, 5)));
         }
         public override bool TryAtack(IPlayer player) {
+            if (player == null)
+            {
+                throw new Exception("Недопустимое значение !");
+            }
             bool BaseAttack = base.TryAtack(player); 
             if(!BaseAttack)
             {
