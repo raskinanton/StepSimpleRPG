@@ -1,5 +1,6 @@
 ﻿using StepSimpleRPG.Items;
 using StepSimpleRPG.Players;
+using System;
 using System.Collections.Generic;
 
 namespace StepSimpleRPG.Monsters
@@ -9,15 +10,16 @@ namespace StepSimpleRPG.Monsters
         public  MediumMonster()
         {
             _specs.Name = "MediumMonster";
-            _specs.Health = 10;
-            _specs.Coin = 2;
-            _specs.Armor = 2;
-            _specs.Exp = 6;
-            _PassCost = 2;
+            _specs.Health = 10 + rnd.Next(-3, 3);
+            _specs.Coin = 2 + rnd.Next(-1, 4);
+            _specs.Armor = 2 + rnd.Next(-1, 3);
+            _specs.Exp = 6 + rnd.Next(-1, 3);
+            _PassCost = 2 + rnd.Next(1, 3);
             _items = new List<IItem>();
-            _items.Add(new Treasure(2));
-            _items.Add(new Potion(2));
+            _items.Add(new Treasure(3 + rnd.Next(-1, 5));
+            _items.Add(new Potion(3 + rnd.Next(-1, 5));
         }
+
         public override bool TryAtack(IPlayer player)
         {
             if (!base.TryAtack(player))
