@@ -2,6 +2,8 @@
 using StepSimpleRPG.Misc;
 using System.Collections.Generic;
 using System;
+using System.Linq;
+
 namespace StepSimpleRPG.Players
 {
     public class Player : IPlayer
@@ -39,7 +41,15 @@ namespace StepSimpleRPG.Players
             _specs = specs;
 
         }
-        public List<IItem> Items { get; set; }
+        private List<IItem> _items { get; set; }
+
+        
+        public void pushItems(List<IItem> _items)
+        {
+            this._items.Concat(_items);
+        }
         public Specifications Specs { get => _specs; set { _specs = value; } }
+
+
     }
 }
