@@ -16,7 +16,7 @@ namespace StepSimpleRPG
     {
         static void Main(string[] args)
         {
-            Console.OutputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.Unicode;
             Player player = new Player("Tim");
             IMonster monster = new EasyMonster();
             Game game = new Game(player, monster);
