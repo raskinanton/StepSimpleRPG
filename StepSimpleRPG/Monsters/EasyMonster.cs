@@ -30,7 +30,7 @@ namespace StepSimpleRPG.Monsters
         {
             if (player == null)
             {
-                throw new Exception("Недопустимое значение !");
+                throw new Exception("player is null");
             }
             Random rnd = new Random();
             int result = rnd.Next(1, 10);
