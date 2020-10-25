@@ -8,6 +8,7 @@ namespace StepSimpleRPG.Players
     {
         string ToString();
 
+        bool tryTreatment();
         void pushItems(List<IItem> _items);
         Specifications Specs { get; set; }
     }

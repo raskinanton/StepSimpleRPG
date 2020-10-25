@@ -13,19 +13,26 @@ namespace StepSimpleRPG.Players
 
         public Player(string name)
         {
-            _specs = new Specifications()
+            if (string.IsNullOrEmpty(name))
             {
-                Armor = 10,
-                Coin = 2,
-                Exp = 0,
-                Health = 100,
-                Name = name
-            };
-            _items = new List<IItem> ();
+                throw new Exception("Недопустимое значение!");
+            }
+            else
+            {
+                _specs = new Specifications()
+                {
+                    Armor = 10,
+                    Coin = 2,
+                    Exp = 0,
+                    Health = 100,
+                    Name = name
+                };
+                _items = new List<IItem>();
+            }
         }
         public Player(int armor, int coin, int exp, int health, string name)
         {
-            if (armor < 0 || coin < 0 || exp < 0 || health < 0)
+            if (armor < 0 || coin < 0 || exp < 0 || health < 0 || string.IsNullOrEmpty(name))
                 throw new Exception("Недопустимое значение!");
             else
             {
