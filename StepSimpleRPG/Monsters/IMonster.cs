@@ -4,7 +4,7 @@ namespace StepSimpleRPG.Monsters
 {
     public interface IMonster
     {
-        bool Atack(IPlayer player);
-        bool Pass (IPlayer player);
+        bool TryAtack(IPlayer player);
+        bool TryPass (IPlayer player);
     }
 }

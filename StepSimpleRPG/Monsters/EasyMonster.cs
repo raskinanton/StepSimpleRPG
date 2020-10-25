@@ -1,38 +1,53 @@
-﻿using StepSimpleRPG.Items;
+﻿using System;
 using StepSimpleRPG.Players;
+using StepSimpleRPG.Misc;
+using StepSimpleRPG.Items;
 using System.Collections.Generic;
 
 namespace StepSimpleRPG.Monsters
 {
-    class EasyMonster : Monster
+   abstract class EasyMonster: IMonster
     {
+
+        protected Specifications _specs;
+        protected int _PassCost;
+        protected List<IItem> _items;
+
+
         public EasyMonster()
         {
-            _specs.Name = "Easy Monster";
+            _specs = new Specifications();
+            _specs.Name = "EasyMonster";
             _specs.Health = 5;
             _specs.Coin = 1;
             _specs.Armor = 0;
-            _specs.Exp = 3;
-            _PassCost = 1;
-            _items = new List<IItem>();
-            _items.Add(new Treasure(1));
+            _specs.Exp = 2;
+            _PassCost = 5;
+            
         }
-        public override bool Atack(IPlayer player)
+        public virtual bool TryAtack(IPlayer player)
         {
-            if (!base.Atack(player))
-            {
-                player.Specs.Exp += 1;
-                //player.pushItems(_items); //у игрока реализовать данный метод(для добавления ему вещей в случае его победы);
-
+            Random rnd = new Random();
+            int result = rnd.Next(1, 10);
+            player.Specs.Health -= _specs.Exp;
+            if (result >= 3)
+            {              
+                player.Specs.Coin += _specs.Coin;
                 return false;
             }
-
             return true;
-        }
-        public override string ToString()
-        {
-            return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Armor}, Exp:{_specs.Exp}";
+          
         }
 
+        public virtual bool TryPass(IPlayer player)
+        {
+            if (player.Specs.Coin >= _PassCost)
+            {
+                player.Specs.Coin -= _PassCost;
+                return true;
+            }
+            return false;
+        }
     }
 }
+
