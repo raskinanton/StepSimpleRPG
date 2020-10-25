@@ -9,6 +9,8 @@ namespace StepSimpleRPG.Players
     public class Player : IPlayer
     {
         private Specifications _specs;
+        private List<IItem> _items { get; set; }
+
         public Player(string name)
         {
             _specs = new Specifications()
@@ -19,6 +21,7 @@ namespace StepSimpleRPG.Players
                 Health = 100,
                 Name = name
             };
+            _items = new List<IItem> ();
         }
         public Player(int armor, int coin, int exp, int health, string name)
         {
@@ -34,16 +37,38 @@ namespace StepSimpleRPG.Players
                     Health = health,
                     Name = name
                 };
+                _items = new List<IItem> { };
             }
         }
         public Player(Specifications specs)
         {
             _specs = specs;
+            _items = new List<IItem> { };
 
         }
-        private List<IItem> _items { get; set; }
 
-        
+        public void showItems()
+        {
+            foreach(var i in _items)
+            {
+                Console.WriteLine($"{ i.ToString()}\n");
+            }
+        }
+
+        public bool tryTreatment()
+        {
+            for (int i = 0; i < _items.Count; i++)
+            {
+                if (_items[i] is Potion)
+                {
+                    _items[i].Apply(this);
+                    _items.RemoveAt(i);
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void pushItems(List<IItem> _items)
         {
             this._items.Concat(_items);
