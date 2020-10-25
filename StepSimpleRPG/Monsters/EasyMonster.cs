@@ -31,7 +31,8 @@ namespace StepSimpleRPG.Monsters
             int result = rnd.Next(1, 10);
             player.Specs.Health -= _specs.Exp;
             if (result >= 3)
-            {              
+            {
+                player.Specs.Exp += 1;          
                 player.Specs.Coin += _specs.Coin;
                 return false;
             }
@@ -47,6 +48,11 @@ namespace StepSimpleRPG.Monsters
                 return true;
             }
             return false;
+        }
+
+        public override string ToString()
+        {
+            return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Armor}, Exp:{_specs.Exp}";
         }
     }
 }

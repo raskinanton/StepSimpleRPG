@@ -26,6 +26,7 @@ namespace StepSimpleRPG.Monsters
             bool BaseAttack = base.TryAtack(player); 
             if(!BaseAttack)
             {
+                player.Specs.Exp += 4;
                 //player.pushItems(_items); //у игрока реализовать данный метод(для добавления ему вещей в случае его победы);
                 return false;
             }
