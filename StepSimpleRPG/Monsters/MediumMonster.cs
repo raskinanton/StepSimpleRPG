@@ -33,7 +33,7 @@ namespace StepSimpleRPG.Monsters
         }
         public override string ToString()
         {
-            return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Armor}, Exp:{_specs.Exp}";
+            return $"I'm {_specs.Name}, (H: {_specs.Health}, C: {_specs.Coin}, Ar: {_specs.Armor}, E:{_specs.Exp}) challenge you to battle!!!";
         }
     }
 }
