@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace StepSimpleRPG.Monsters
 {
-    class MediumMonster: Monster
+    class MediumMonster: EasyMonster
     {
         public  MediumMonster()
         {

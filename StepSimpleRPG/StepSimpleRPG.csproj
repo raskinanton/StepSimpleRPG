@@ -45,14 +45,13 @@
   <ItemGroup>
     <Compile Include="Items\Armor.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Monsters\EasyMonster.cs" />
     <Compile Include="Monsters\HardMonster.cs" />
     <Compile Include="Players\IPlayer.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\Potion.cs" />
     <Compile Include="Monsters\IMonster.cs" />
     <Compile Include="Monsters\MediumMonster.cs" />
-    <Compile Include="Monsters\Monster.cs" />
+    <Compile Include="Monsters\EasyMonster.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
