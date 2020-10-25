@@ -12,11 +12,12 @@ namespace StepSimpleRPG.Monsters
         {
             _specs = new Misc.Specifications();
             _specs.Name = "HardMonster";
-            _specs.Health = 15;
-            _specs.Coin = 5;
-            _specs.Armor = 5;
-            _specs.Exp = 10;
-            _PassCost = 4;
+
+            _specs.Health = 7 + rnd.Next(-3, 3);
+            _specs.Coin = 4 + rnd.Next(-1, 3);
+            _specs.Armor = 4 + rnd.Next(1, 2);
+            _specs.Exp = 4 + rnd.Next(1, 2);
+            _PassCost = 4 + rnd.Next(2, 5);
             _items = new List<IItem>();
             _items.Add(new Treasure(2));
             _items.Add(new Potion(3));
