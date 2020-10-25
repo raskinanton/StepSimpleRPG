@@ -3,15 +3,17 @@ using System;
 
 namespace StepSimpleRPG.Items
 {
-    internal class Armor : IItem
+    public class Armor : IItem
     {
         private readonly int _armorupRate;
 
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
-        internal Armor (int armorupRate, string name = "No name")
+        public Armor (int armorupRate, string name = "No name")
         {
-            Name = name == string.Empty ? "No name" : name;
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentNullException(nameof(name));
+            Name = name;
             _armorupRate = armorupRate > 0 ? armorupRate : throw new Exception("ArmorupRate value cannot be negative or zero");
         }
 
