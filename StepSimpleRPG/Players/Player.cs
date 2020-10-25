@@ -31,7 +31,7 @@ namespace StepSimpleRPG.Players
                 _items = new List<IItem>();
             }
         }
-        public Player(int armor, int coin, int exp, int health, string name)
+        public Player(int damage, int coin, int exp, int health, string name)
         {
             if (armor < 0 || coin < 0 || exp < 0 || health < 0 || string.IsNullOrEmpty(name))
                 throw new Exception("Недопустимое значение!");
@@ -39,7 +39,7 @@ namespace StepSimpleRPG.Players
             {
                 _specs = new Specifications()
                 {
-                    Damage = armor,
+                    Damage = damage,
                     Coin = coin,
                     Exp = exp,
                     Health = health,
