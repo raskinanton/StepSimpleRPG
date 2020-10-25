@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace StepSimpleRPG.Monsters
 {
-   abstract class EasyMonster: IMonster
+    class EasyMonster: IMonster
     {
 
         protected Specifications _specs;
