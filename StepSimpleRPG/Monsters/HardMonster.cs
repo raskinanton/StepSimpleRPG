@@ -26,7 +26,7 @@ namespace StepSimpleRPG.Monsters
         public override bool TryAtack(IPlayer player) {
             if (player == null)
             {
-                throw new Exception("Недопустимое значение !");
+                throw new Exception("player is null");
             }
             bool BaseAttack = base.TryAtack(player); 
             if(!BaseAttack)
@@ -38,11 +38,5 @@ namespace StepSimpleRPG.Monsters
             return true;
         
         }
-      
-        public override string ToString()
-        {
-            return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Armor}, Exp:{_specs.Exp}";
-        }
-
     }
 }

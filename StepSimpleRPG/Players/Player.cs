@@ -10,7 +10,7 @@ namespace StepSimpleRPG.Players
     public class Player : IPlayer
     {
         private Specifications _specs;
-        private List<IItem> _items { get; set; }
+        protected List<IItem> _items { get; set; }
 
         public Player(string name)
         {
@@ -55,14 +55,6 @@ namespace StepSimpleRPG.Players
 
         }
 
-        public void showItems()
-        {
-            foreach(var i in _items)
-            {
-                Console.WriteLine($"{ i.ToString()}\n");
-            }
-        }
-
         public bool tryTreatment()
         {
             for (int i = 0; i < _items.Count; i++)
@@ -79,18 +71,21 @@ namespace StepSimpleRPG.Players
 
         public void pushItems(List<IItem> _items)
         {
-            this._items.Concat(_items);
+            this._items.AddRange(_items);
         }
         public Specifications Specs { get => _specs; set { _specs = value; } }
 
         public override string ToString()
         {
             var str = new StringBuilder();
+            str.Append("Имя: ");
             str.Append(_specs.Name);
-            str.Append("Предметы в рюкзаке: ");
+            str.Append($"Броня - {_specs.Armor}, деньги - {_specs.Coin}, опыт - {_specs.Exp}, здороье - {_specs.Health}");
+            str.Append("\nПредметы в рюкзаке:");
             foreach (var i in _items)
             {
                 str.Append(i.ToString());
+                str.Append("\n");
             }
             return str.ToString();
         }
