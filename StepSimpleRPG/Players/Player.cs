@@ -22,7 +22,7 @@ namespace StepSimpleRPG.Players
             {
                 _specs = new Specifications()
                 {
-                    Armor = 10,
+                    Damage = 10,
                     Coin = 2,
                     Exp = 0,
                     Health = 100,
