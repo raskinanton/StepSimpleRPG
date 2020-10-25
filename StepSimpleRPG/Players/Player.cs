@@ -33,7 +33,7 @@ namespace StepSimpleRPG.Players
         }
         public Player(int damage, int coin, int exp, int health, string name)
         {
-            if (armor < 0 || coin < 0 || exp < 0 || health < 0 || string.IsNullOrEmpty(name))
+            if (damage < 0 || coin < 0 || exp < 0 || health < 0 || string.IsNullOrEmpty(name))
                 throw new Exception("Недопустимое значение!");
             else
             {
