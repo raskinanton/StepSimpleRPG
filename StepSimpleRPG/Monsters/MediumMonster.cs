@@ -16,8 +16,8 @@ namespace StepSimpleRPG.Monsters
             _specs.Exp = 6 + rnd.Next(-1, 3);
             _PassCost = 2 + rnd.Next(1, 3);
             _items = new List<IItem>();
-            _items.Add(new Treasure(3 + rnd.Next(-1, 5));
-            _items.Add(new Potion(3 + rnd.Next(-1, 5));
+            _items.Add(new Treasure(3 + rnd.Next(-1, 5)));
+            _items.Add(new Potion(3 + rnd.Next(-1, 5)));
         }
 
         public override bool TryAtack(IPlayer player)
