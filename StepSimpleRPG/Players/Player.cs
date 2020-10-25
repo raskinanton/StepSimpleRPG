@@ -3,6 +3,7 @@ using StepSimpleRPG.Misc;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using System.Text;
 
 namespace StepSimpleRPG.Players
 {
@@ -84,9 +85,14 @@ namespace StepSimpleRPG.Players
 
         public override string ToString()
         {
-            Console.WriteLine("Предметы в моём рюкзаке: ");
-            showItems();
-            return _specs.Name;
+            var str = new StringBuilder();
+            str.Append(_specs.Name);
+            str.Append("Предметы в рюкзаке: ");
+            foreach (var i in _items)
+            {
+                str.Append(i.ToString());
+            }
+            return str.ToString();
         }
     }
 }
