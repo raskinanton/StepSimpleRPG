@@ -28,16 +28,6 @@ namespace StepSimpleRPG.Monsters
             }
 
             return true;
-
-            //if(player.Specs.Health + player.Specs.Armor <= _specs.Exp)
-            //{
-            //    player.Specs.Health = player.Specs.Armor = 0;
-            //    return true;
-            //}
-
-            //player.Specs.Health -= _specs.Exp;
-
-            //return false;
         }
         public override string ToString()
         {
