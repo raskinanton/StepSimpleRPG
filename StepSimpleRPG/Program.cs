@@ -16,10 +16,12 @@ namespace StepSimpleRPG
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
             Player player = new Player("Tim");
             IMonster monster = new EasyMonster();
             Game game = new Game(player, monster);
             game.run();
+
         }
     }
 }
