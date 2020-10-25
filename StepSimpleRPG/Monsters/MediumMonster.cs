@@ -36,9 +36,5 @@ namespace StepSimpleRPG.Monsters
             }
             return true;
         }
-        public override string ToString()
-        {
-            return $"I'm {_specs.Name}, (H: {_specs.Health}, C: {_specs.Coin}, Ar: {_specs.Armor}, E:{_specs.Exp}) challenge you to battle!!!";
-        }
     }
 }
