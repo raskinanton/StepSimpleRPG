@@ -12,7 +12,7 @@ namespace StepSimpleRPG.Monsters
             _specs.Name = "MediumMonster";
             _specs.Health = 10 + rnd.Next(-3, 3);
             _specs.Coin = 2 + rnd.Next(-1, 4);
-            _specs.Armor = 2 + rnd.Next(-1, 3);
+            _specs.Damage = 2 + rnd.Next(-1, 3);
             _specs.Exp = 6 + rnd.Next(-1, 3);
             _PassCost = 2 + rnd.Next(1, 3);
             _items = new List<IItem>();
