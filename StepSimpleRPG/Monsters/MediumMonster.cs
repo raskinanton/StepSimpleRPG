@@ -6,8 +6,6 @@ namespace StepSimpleRPG.Monsters
 {
     class MediumMonster: Monster
     {
-        List<IItem> _items;
-
         public  MediumMonster()
         {
             _specs.Name = "MediumMonster";

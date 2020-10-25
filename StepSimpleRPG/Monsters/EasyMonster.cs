@@ -6,7 +6,6 @@ namespace StepSimpleRPG.Monsters
 {
     class EasyMonster : Monster
     {
-        List<IItem> _items;
         public EasyMonster()
         {
             _specs.Name = "Easy Monster";
