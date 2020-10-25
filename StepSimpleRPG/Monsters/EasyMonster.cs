@@ -18,7 +18,18 @@ namespace StepSimpleRPG.Monsters
             _items = new List<IItem>();
             _items.Add(new Treasure(1));
         }
+        public override bool Atack(IPlayer player)
+        {
+            if (!base.Atack(player))
+            {
+                player.Specs.Exp += 1;
+                //player.pushItems(_items); //у игрока реализовать данный метод(для добавления ему вещей в случае его победы);
 
+                return false;
+            }
+
+            return true;
+        }
         public override string ToString()
         {
             return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Armor}, Exp:{_specs.Exp}";

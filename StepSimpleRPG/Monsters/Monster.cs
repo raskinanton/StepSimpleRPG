@@ -9,7 +9,7 @@ namespace StepSimpleRPG.Monsters
 
         protected Specifications _specs = new Specifications();
         protected int _PassCost;
-
+ 
         public Monster()
         {
             _specs.Name = "Монстр 1 уровня";

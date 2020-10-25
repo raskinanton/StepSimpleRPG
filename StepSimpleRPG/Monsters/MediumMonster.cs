@@ -20,7 +20,17 @@ namespace StepSimpleRPG.Monsters
             _items.Add(new Treasure(2));
             _items.Add(new Potion(2));
         }
+        public override bool Atack(IPlayer player)
+        {
+            if (!base.Atack(player))
+            {
+                player.Specs.Exp += 2;
+                //player.pushItems(_items); //у игрока реализовать данный метод(для добавления ему вещей в случае его победы);
 
+                return false;
+            }
+            return true;
+        }
         public override string ToString()
         {
             return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Armor}, Exp:{_specs.Exp}";
