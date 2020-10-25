@@ -20,8 +20,6 @@ namespace StepSimpleRPG
             IMonster monster = new EasyMonster();
             Game game = new Game(player, monster);
             game.run();
-
-
         }
     }
 }

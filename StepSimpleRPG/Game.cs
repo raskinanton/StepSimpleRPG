@@ -32,16 +32,16 @@ namespace StepSimpleRPG
                         Console.WriteLine(_monster.ToString());
                         break;
                     case "w":
-                        if (IsMonsterNewGenerate())
+                        if (!IsMonsterNewGenerate())
                             break;
                         if (_monster.TryAtack(_player))
                         {
                             _isGenerateNewMonster = false;
-                            Console.WriteLine("не упалл");
+                            Console.WriteLine("win");
                         }
                         else
                         {
-                            Console.WriteLine("дрыщ");
+                            Console.WriteLine("fail");
                         }
                         break;
                     case "a":
@@ -71,7 +71,7 @@ namespace StepSimpleRPG
         {
             if (!_isGenerateNewMonster)
             {
-                Console.WriteLine("Монстр не сгенерирован");
+                Console.WriteLine("monstr is not generate");
                 _isGenerateNewMonster = false;
                 return false;
             }
