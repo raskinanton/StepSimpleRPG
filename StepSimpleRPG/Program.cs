@@ -21,7 +21,6 @@ namespace StepSimpleRPG
             Game game = new Game(player, monster);
             game.run();
 
-
         }
     }
 }
