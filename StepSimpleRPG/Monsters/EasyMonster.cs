@@ -6,25 +6,22 @@ using System.Collections.Generic;
 
 namespace StepSimpleRPG.Monsters
 {
-    class EasyMonster: IMonster
+    class EasyMonster : IMonster
     {
-        protected  Random rnd = new Random();
+        protected Random _rnd;
         protected Specifications _specs;
         protected int _PassCost;
         protected List<IItem> _items;
-
-
         public EasyMonster()
         {
-            Random rnd = new Random();
+            _rnd = new Random();
             _specs = new Specifications();
-            _specs.Name = "EasyMonster";
-            _specs.Health = 5 + rnd.Next(-3,3);
-            _specs.Coin = 2 + rnd.Next(-1, 3);
-            _specs.Damage = 2 + rnd.Next(1, 2);
-            _specs.Exp = 1 + rnd.Next(1, 2);
-            _PassCost = 2 + rnd.Next(2, 5);
-            
+            _specs.Name = "SMALL MONSTER";
+            _specs.Health = 3 + _rnd.Next(0, 3);
+            _specs.Coin = 2 + _rnd.Next(-1, 3);
+            _specs.Damage = 1 + _rnd.Next(0, 4);
+            _specs.Exp = 1;
+            _PassCost = 2 + _rnd.Next(0, 3);
         }
         public virtual bool TryAtack(IPlayer player)
         {
@@ -32,19 +29,18 @@ namespace StepSimpleRPG.Monsters
             {
                 throw new Exception("player is null");
             }
-            Random rnd = new Random();
-            int result = rnd.Next(1, 10);
+
             player.Specs.Health -= _specs.Damage;
-            if (result >= 3)
+
+            if (_rnd.Next(1, 10) >= 3)
             {
-                player.Specs.Exp += _specs.Exp;          
+                player.Specs.Exp += _specs.Exp;
                 player.Specs.Coin += _specs.Coin;
                 return false;
             }
-            return true;
-          
-        }
 
+            return true;
+        }
         public virtual bool TryPass(IPlayer player)
         {
             if (player.Specs.Coin >= _PassCost)
@@ -54,12 +50,9 @@ namespace StepSimpleRPG.Monsters
             }
             return false;
         }
-
         public override string ToString()
         {
-            return $"{_specs.Name}, health: {_specs.Health}, coin: {_specs.Coin}, armor: {_specs.Damage}, Exp:{_specs.Exp} \n";
-
+            return $"I'm {_specs.Name} challenge you to battle\n(ammo:{_specs.Damage}, ${_specs.Coin}, exp:{_specs.Exp}, health:{_specs.Health})";
         }
     }
 }
-

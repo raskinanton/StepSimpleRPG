@@ -4,8 +4,8 @@ using System;
 
 namespace StepSimpleRPG
 {
-        public class Game
-    { 
+    public class Game
+    {
         private IPlayer _player;
         private IMonster _monster;
         private bool _isGenerateNewMonster = false;
@@ -21,15 +21,22 @@ namespace StepSimpleRPG
             do
             {
                 Console.WriteLine(_player.ToString());
+                Console.ResetColor();
                 Console.WriteLine("m - Move\nw - Attack\na - Retreat\ns - Heal\n0 - Exit\n");
                 Console.WriteLine("Enter action: ");
+
                 action = Console.ReadLine();
+                Console.Clear(); // очистка окна консоли
+
                 switch (action)
                 {
                     case "m":
                         _monster = CreateMonster(_player);
                         _isGenerateNewMonster = true;
+
+                        Console.ForegroundColor = ConsoleColor.Red; // красный текст
                         Console.WriteLine(_monster.ToString());
+                        Console.ResetColor();  // вернуть цвет по умолчанию
                         break;
                     case "w":
                         if (!IsMonsterNewGenerate())
@@ -54,7 +61,8 @@ namespace StepSimpleRPG
                         if (_player.tryTreatment())
                         {
                             Console.WriteLine("heal success");
-                        } else
+                        }
+                        else
                         {
                             Console.WriteLine("heal failed");
                         }
@@ -64,7 +72,7 @@ namespace StepSimpleRPG
                         return;
                 }
             }
-            while(action != "0");
+            while (action != "0");
         }
 
         private bool IsMonsterNewGenerate()
