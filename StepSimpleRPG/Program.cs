@@ -7,9 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using static StepSimpleRPG.Game;
 
-
-
-
 namespace StepSimpleRPG
 {
     class Program
@@ -17,7 +14,7 @@ namespace StepSimpleRPG
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.Unicode;
-            Player player = new Player("Tim");
+            Player player = new Player("Ульфрик Буревестник");
             IMonster monster = new EasyMonster();
             Game game = new Game(player, monster);
             game.run();

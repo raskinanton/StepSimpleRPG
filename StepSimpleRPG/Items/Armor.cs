@@ -9,7 +9,7 @@ namespace StepSimpleRPG.Items
 
         public string Name { get; set; }
 
-        public Armor (int armorupRate, string name = "No name")
+        public Armor (int armorupRate, string name = "Аммуниция")
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentNullException(nameof(name));
@@ -31,7 +31,7 @@ namespace StepSimpleRPG.Items
 
         public override string ToString()
         {
-            return $"InemName: {Name}, armorupRate: {_armorupRate}";
+            return $"{Name}, кол-во брони: {_armorupRate}";
         }
     }
 }

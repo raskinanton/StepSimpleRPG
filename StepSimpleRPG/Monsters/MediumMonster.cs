@@ -9,7 +9,7 @@ namespace StepSimpleRPG.Monsters
     {
         public MediumMonster()
         {
-            _specs.Name = "MEDIUM MONSTER";
+            _specs.Name = "тролль равнинный. Быстрый и юркий средний противник. Он умело владет кинжалами и луком. Нужно успевать отражать атаки.";
             _specs.Health = 6 + _rnd.Next(0, 5);
             _specs.Coin = 2 + _rnd.Next(-1, 4);
             _specs.Damage = 5 + _rnd.Next(0, 5);
@@ -22,12 +22,7 @@ namespace StepSimpleRPG.Monsters
 
         public override bool TryAtack(IPlayer player)
         {
-            if (player == null)
-            {
-                throw new Exception("player is null");
-            }
-
-            if (!base.TryAtack(player))
+            if (!base.TryAtack(player ?? throw new ArgumentNullException("player is null")))
             {
                 player.Specs.Exp += 2;
                 player.Specs.Damage += 1;

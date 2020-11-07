@@ -9,7 +9,7 @@ namespace StepSimpleRPG.Items
 
         public string Name { get; private set; }
 
-        public Potion (int healingRate, string name = "No name")
+        public Potion (int healingRate, string name = "Медикаменты")
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentNullException(nameof(name));
@@ -31,7 +31,7 @@ namespace StepSimpleRPG.Items
 
         public override string ToString()
         {
-            return $"InemName: {Name}, healingRate: {_healingRate}";
+            return $"{Name}, сила лечения: {_healingRate}";
         }
     }
 }

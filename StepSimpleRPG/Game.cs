@@ -9,81 +9,64 @@ namespace StepSimpleRPG
         private IPlayer _player;
         private IMonster _monster;
         private bool _isGenerateNewMonster = false;
+        private PhrasesKeeper _phrases;
 
         public Game(IPlayer player, IMonster monster)
         {
             _player = player;
             _monster = monster;
+            _phrases = new PhrasesKeeper();
         }
         public void run()
         {
-            string action = "";
-            do
+            try
             {
-                Console.WriteLine(_player.ToString());
-                Console.ResetColor();
-                Console.WriteLine("m - Move\nw - Attack\na - Retreat\ns - Heal\n0 - Exit\n");
-                Console.WriteLine("Enter action: ");
-
-                action = Console.ReadLine();
-                Console.Clear(); // очистка окна консоли
-
-                switch (action)
+                while (true)
                 {
-                    case "m":
-                        _monster = CreateMonster(_player);
-                        _isGenerateNewMonster = true;
-
-                        Console.ForegroundColor = ConsoleColor.Red; // красный текст
-                        Console.WriteLine(_monster.ToString());
-                        Console.ResetColor();  // вернуть цвет по умолчанию
-                        break;
-                    case "w":
-                        if (!IsMonsterNewGenerate())
+                    Console.WriteLine(_player.ToString());
+                    Console.ResetColor();
+                    Console.WriteLine("\nm - Идти дальше\nw - Атаковать\na - Отступить\ns - Перевязать раны\n0 - Выйти из игры");
+                    Console.Write("Выберите действие, мой милорд: ");
+                    var action = Console.ReadLine();
+                    Console.Clear();
+                    switch (action)
+                    {
+                        case "m":
+                            Move();
                             break;
-                        if (_monster.TryAtack(_player))
-                        {
-                            _isGenerateNewMonster = false;
-                            Console.WriteLine("win");
-                        }
-                        else
-                        {
-                            Console.WriteLine("fail");
-                        }
-                        break;
-                    case "a":
-                        if (IsMonsterNewGenerate())
-                        {
-                            _monster.TryPass(_player);
-                        }
-                        break;
-                    case "s":
-                        if (_player.tryTreatment())
-                        {
-                            Console.WriteLine("heal success");
-                        }
-                        else
-                        {
-                            Console.WriteLine("heal failed");
-                        }
-                        break;
-                    case "0":
-                        Console.WriteLine("The End!");
-                        return;
-                }
+                        case "w":
+                            if (!IsMonsterNewGenerate())
+                                break;
+                            Attack();
+                            break;
+                        case "a":
+                            Retreat();
+                            break;
+                        case "s":
+                            Heal();
+                            break;
+                        case "0":
+                            Console.WriteLine("Эх! Хорошее было путешествие!\n<<< Конец саги >>>");
+                            return;
+                        default:
+                            Console.WriteLine(_phrases.GetPhraseIfWrongCommandWasEntered());
+                            break;
+                    }
+                };
             }
-            while (action != "0");
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private bool IsMonsterNewGenerate()
         {
-            if (!_isGenerateNewMonster)
-            {
-                Console.WriteLine("monstr is not generate");
-                _isGenerateNewMonster = false;
-                return false;
-            }
-            return true;
+            if (_isGenerateNewMonster)
+                return true;
+
+            Console.WriteLine(_phrases.GetPhraseIfThereIsNoMonserAround());
+            return false;
         }
 
         private IMonster CreateMonster(IPlayer player)
@@ -97,6 +80,48 @@ namespace StepSimpleRPG
             if (exp >= 10)
                 return new HardMonster();
             return null;
+        }
+
+        private void Heal()
+        {
+            if (_player.tryTreatment())
+            {
+                Console.WriteLine("На этот раз я смог перевязать свои раны. Но в следующий раз мне стоит быть аккуратнее.");
+            }
+            else
+            {
+                Console.WriteLine("Ахххх! Мне нечем зашить эту рану. Куда я дел эту иглу?");
+            }
+        }
+
+        private void Retreat()
+        {
+            if (IsMonsterNewGenerate())
+            {
+                _monster.TryPass(_player);
+            }
+        }
+
+        private void Attack()
+        {
+            if (_monster.TryAtack(_player))
+            {
+                _isGenerateNewMonster = false;
+                Console.WriteLine(_phrases.GetPhraseIfAttackWasSucsessfull());
+            }
+            else
+            {
+                Console.WriteLine(_phrases.GetPhraseIfAttackWasNotSucsessfull());
+            }
+        }
+
+        private void Move()
+        {
+            _monster = CreateMonster(_player);
+            _isGenerateNewMonster = true;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(_monster.ToString());
+            Console.ResetColor();
         }
     }
 }

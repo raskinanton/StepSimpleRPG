@@ -8,7 +8,7 @@ namespace StepSimpleRPG.Monsters
     {
         public HardMonster()
         {
-            _specs.Name = "HARD MONSTER";
+            _specs.Name = "ордынский 150 килограммовый орк с топором. Этот топор больше меня! Худший из противников что могли мне попасться на пути.";
             _specs.Health = 10 + _rnd.Next(0, 5);
             _specs.Coin = 4 + _rnd.Next(-1, 3);
             _specs.Damage = 10 + _rnd.Next(0, 5);
@@ -21,12 +21,7 @@ namespace StepSimpleRPG.Monsters
         }
         public override bool TryAtack(IPlayer player)
         {
-            if (player == null)
-            {
-                throw new Exception("player is null");
-            }
-
-            if (!base.TryAtack(player))
+            if (!base.TryAtack(player ?? throw new ArgumentNullException("player is null")))
             {
                 player.Specs.Exp += _specs.Exp;
                 player.Specs.Damage += 2;

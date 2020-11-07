@@ -9,7 +9,7 @@ namespace StepSimpleRPG.Items
 
         public string Name { get; private set; }
 
-        public Treasure (int coins, string name = "No name")
+        public Treasure (int coins, string name = "Золотые монеты")
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentNullException(nameof(name));
@@ -31,7 +31,7 @@ namespace StepSimpleRPG.Items
 
         public override string ToString()
         {
-            return $"InemName: {Name}, coins: {_coins}";
+            return $"{Name}, кол-во монет: {_coins}";
         }
     }
 }

@@ -16,7 +16,7 @@ namespace StepSimpleRPG.Monsters
         {
             _rnd = new Random();
             _specs = new Specifications();
-            _specs.Name = "SMALL MONSTER";
+            _specs.Name = "мерзкий гоблин. Не сильный противник, но он может напакостить своими ядами и капканами, так что не стоит расслабляться!";
             _specs.Health = 3 + _rnd.Next(0, 3);
             _specs.Coin = 2 + _rnd.Next(-1, 3);
             _specs.Damage = 1 + _rnd.Next(0, 4);
@@ -26,9 +26,7 @@ namespace StepSimpleRPG.Monsters
         public virtual bool TryAtack(IPlayer player)
         {
             if (player == null)
-            {
-                throw new Exception("player is null");
-            }
+                throw new ArgumentNullException("player is null");
 
             player.Specs.Health -= _specs.Damage;
 
@@ -52,7 +50,7 @@ namespace StepSimpleRPG.Monsters
         }
         public override string ToString()
         {
-            return $"I'm {_specs.Name} challenge you to battle\n(ammo:{_specs.Damage}, ${_specs.Coin}, exp:{_specs.Exp}, health:{_specs.Health})";
+            return $"Передо мной {_specs.Name}\n(ammo:{_specs.Damage}, ${_specs.Coin}, exp:{_specs.Exp}, health:{_specs.Health})";
         }
     }
 }
